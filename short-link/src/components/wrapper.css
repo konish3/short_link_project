@@ -1,0 +1,17 @@
+header {
+	height: 52px;
+	max-width: 1296px;
+	margin: 0 auto;
+	background: linear-gradient(#ccc, #f2f2f2);
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+h2 {
+	font-size: 34px;
+	margin: 9px 20px;
+	color: #1c1c1c;
+}
+.main {
+	max-width: 1260px;
+	margin: 0 auto;
+}
