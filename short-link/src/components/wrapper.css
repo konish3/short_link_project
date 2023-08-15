@@ -1,3 +1,9 @@
+.wrapper{
+	overflow: hidden;
+	min-height: 100%;
+	padding: 0 10px;
+	box-sizing: content-box;
+}
 header {
 	height: 52px;
 	max-width: 1296px;
@@ -14,4 +20,13 @@ h2 {
 .main {
 	max-width: 1260px;
 	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media (width < 1015px) {
+	.main{
+		display: block;
+		margin: 0 auto;
+	}
 }
