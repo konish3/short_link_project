@@ -25,9 +25,9 @@ const myLinkSlice = createSlice({
 	name: 'myLinks',
 	initialState: initialState.myLinks,
 	reducers: {
-		// addLink: (state, action) => {
-			
-		// }
+		addLink: (state, action) => {
+			state.push({url: action.payload})
+		}
 	}
 })
 

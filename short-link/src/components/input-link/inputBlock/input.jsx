@@ -5,7 +5,7 @@ function Input({ url, handleInputChange }) {
 
 
 	return <>
-		<input className='input' type="text" value={url} onChange={handleInputChange}/>
+		<input className='input' type="text" value={url} onChange={(e) => handleInputChange(e)}/>
 	</>
 }
 
