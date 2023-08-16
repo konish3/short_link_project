@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './input.css'
+import React from 'react';
+import styles from './input.module.css'
 
-function Input({ url, handleInputChange }) {
-
+function Input({ url,error, handleInputChange, onBlur }) {
 
 	return <>
-		<input className='input' type="text" value={url} onChange={(e) => handleInputChange(e)}/>
+		<input className={!error.length ? styles.input : styles.error}
+		type="text" value={url} onChange={handleInputChange} onBlur={onBlur}/>
 	</>
 }
 

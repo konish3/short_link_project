@@ -1,0 +1,14 @@
+.input {
+	outline: 2px solid #ccc;
+	border-radius: 4px;
+	width: 300px;
+	height: 30px;
+	margin-bottom: 15px;
+}
+.error {
+		outline: 2px solid red;
+			border-radius: 4px;
+			width: 300px;
+			height: 30px;
+			margin-bottom: 15px;
+}

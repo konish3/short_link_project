@@ -1,20 +1,39 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Input from './inputBlock/input';
 import Button from './buttonBlock/button';
 import './inputLinkComponent.css';
 import { useDispatch } from 'react-redux';
 
 function InputLink(props) {
-
 	const [url, setUrl] = useState('')
-	const [status, setStatus] = useState('typing')
-	const [error, setError] = useState(null)
+	const [error, setError] = useState('')
 	const dispatch = useDispatch()
-	console.log(url)
 
-	
-	function handleInputChange(e) {
-		setUrl(e.target.value);
+
+
+	function handleInput(type, e) {
+		console.log(type, e.target.value)
+		const value = e.target.value.trim();
+		setUrl(value);
+
+		if (value.length > 2048) {
+			setError('Invalid link length')
+		} else if (!/^http(s)?:\/\//.test(value)) {
+			setError('Invalid link')
+		} else {
+			setError('');
+		}
+
+		if (type === 'blur') {
+			try {
+				console.log(value)
+				new URL(value);
+			} catch (e) {
+				console.log(e)
+				setError('Invalid link')
+				return
+			}
+		}
 	}
 
 	return <>
@@ -22,8 +41,11 @@ function InputLink(props) {
 			<div className="block__content">
 				<div className='block__content_text'>Введите ссылку</div>
 				{/* <form onSubmit={}> */}
-					<Input url={url} handleInputChange={handleInputChange}></Input>
-					<Button url={url} setUrl={setUrl} dispatch={dispatch}></Button>
+				<Input url={url} error={error}
+					handleInputChange={handleInput.bind(null, 'change')}
+					onBlur={handleInput.bind(null, 'blur')}>
+				</Input>
+				<Button url={url} setUrl={setUrl} dispatch={dispatch} error={error}></Button>
 				{/* </form> */}
 				<div className='block__content_error'>{error}</div>
 			</div>
@@ -32,24 +54,3 @@ function InputLink(props) {
 }
 
 export default InputLink;
-
-// const urlPattern = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-// if (typeof url !== 'string') {
-// 	setError('Введенные данные не являются строкой!')
-// } else if (url.length > 2048) {
-// 	setError('Длина введенных данных слишком большая!')
-// } else if (urlPattern.test(url)) {
-// 	setError('Введенные данные не являются ссылкой')
-// }
-
-// const urlPattern = new RegExp('^(https?:\\/\\/)?' +
-// 	'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
-// 	'((\\d{1,3}\\.){3}\\d{1,3}))' +
-// 	'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
-// 	'(\\?[;&a-z\\d%_.~+=-]*)?' +
-// 	'(\\#[-a-z\\d_]*)?$', 'i');
-// if (!urlPattern.test(url)) {
-// 	setError('Некорректная ссылка')
-// } else {
-// 	setError('')
-// }
