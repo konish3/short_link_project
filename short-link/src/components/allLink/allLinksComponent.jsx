@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './allLinksComponent.css'
 import { useSelector } from 'react-redux';
 import ItemLink from '../itemLink/itemLinkComponent';
@@ -6,9 +6,10 @@ import PageNumber from '../pagination/pagination';
 
 function AllLink(props) {
 	const allLinks = useSelector(state => state.allLinks)
-	console.log(allLinks)
+	const [links, setLinks] = useState(null)
+	
 
-	const itemLink = allLinks.map((item, index) => <ItemLink index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
+	const itemLink = allLinks.map((item, index) => <ItemLink key={index + 1} index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
 
 
 	return <>

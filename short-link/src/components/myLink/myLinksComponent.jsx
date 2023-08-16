@@ -8,8 +8,7 @@ function MyLinks(props) {
 
 	const myLinks = useSelector(state => state.myLinks)
 	
-
-	const itemLink = myLinks.map((item, index) => <ItemLink index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
+	const itemLink = myLinks.map((item, index) => <ItemLink key = {index + 1} index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
 
 	return <>
 		<section className="my-links">

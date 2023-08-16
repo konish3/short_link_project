@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './input.css'
 
-function Input (props) {
+function Input({ url, handleInputChange }) {
+
+
 	return <>
-		<input type="text" />
+		<input className='input' type="text" value={url} onChange={handleInputChange}/>
 	</>
 }
 
