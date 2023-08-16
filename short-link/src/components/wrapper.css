@@ -10,7 +10,7 @@ header {
 	margin: 0 auto;
 	background: linear-gradient(#ccc, #f2f2f2);
 	border: 1px solid #ccc;
-	margin-bottom: 15px;
+	margin-bottom: 35px;
 }
 h2 {
 	font-size: 34px;
@@ -18,7 +18,7 @@ h2 {
 	color: #1c1c1c;
 }
 .main {
-	max-width: 1260px;
+	max-width: 1200px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;

@@ -2,6 +2,7 @@ import React from 'react';
 import './allLinksComponent.css'
 import { useSelector } from 'react-redux';
 import ItemLink from '../itemLink/itemLinkComponent';
+import PageNumber from '../pagination/pagination';
 
 function AllLink(props) {
 	const allLinks = useSelector(state => state.allLinks)
@@ -17,6 +18,7 @@ function AllLink(props) {
 				{itemLink}
 			</div>
 		</section>
+		<PageNumber></PageNumber>
 	</>
 }
 

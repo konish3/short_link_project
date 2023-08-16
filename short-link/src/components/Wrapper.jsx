@@ -3,6 +3,7 @@ import './wrapper.css'
 import InputLink from './input-link/inputLinkComponent';
 import MyLinks from './myLink/myLinksComponent';
 import AllLink from './allLink/allLinksComponent';
+import PageNumber from './pagination/pagination';
 
 function Wrapper(props) {
 	return <>
