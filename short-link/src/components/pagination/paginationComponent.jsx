@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './pagination.module.scss'
 
-function PageNumber (props) {
+function Pagination (props) {
 	return <>
 		<article className={styles.pagination}>
 			<div className={styles.content}>
@@ -11,4 +11,4 @@ function PageNumber (props) {
 	</>
 }
 
-export default PageNumber;
+export default Pagination;

@@ -11,34 +11,34 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
-client
-	.query({
-		query: gql`
-		query short_urls{
-			short_urls{
-				data{
-					id
-					url
-					short_url
-					clicks
-					created_at
-					updated_at
-				}
-				paginatorInfo{
-					count
-					currentPage
-					firstItem
-					hasMorePages
-					lastItem
-					lastPage
-					perPage
-					total
-				}
-			}
-		}
-		`,
-	})
-	.then((result) => console.log(result.data.short_urls));
+// client
+// 	.query({
+// 		query: gql`
+// 		query short_urls{
+// 			short_urls{
+// 				data{
+// 					id
+// 					url
+// 					short_url
+// 					clicks
+// 					created_at
+// 					updated_at
+// 				}
+// 				paginatorInfo{
+// 					count
+// 					currentPage
+// 					firstItem
+// 					hasMorePages
+// 					lastItem
+// 					lastPage
+// 					perPage
+// 					total
+// 				}
+// 			}
+// 		}
+// 		`,
+// 	})
+// 	.then((result) => console.log(result.data.short_urls));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

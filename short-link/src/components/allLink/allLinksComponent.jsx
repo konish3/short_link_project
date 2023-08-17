@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './allLinksComponent.css'
 import { useSelector } from 'react-redux';
 import ItemLink from '../itemLink/itemLinkComponent';
-import PageNumber from '../pagination/pagination';
+import PageNumber from '../pagination/paginationComponent';
+import { useQuery, gql } from '@apollo/client';
+
+const GET_ALL_LINKS = gql`
+	query short_urls{
+		short_urls{
+			data{
+				id
+				url
+				short_url
+				clicks
+				created_at
+				updated_at
+			}
+		}
+	}
+`;
 
 function AllLink(props) {
+	const { loading, error, data } = useQuery(GET_ALL_LINKS, { /*pollInterval: 500, */})
 	const allLinks = useSelector(state => state.allLinks)
-	const [links, setLinks] = useState(null)
-	
 
-	const itemLink = allLinks.map((item, index) => <ItemLink key={index + 1} index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
+	console.log(data)
 
+	if(loading) return <><h2>Loading...</h2></>
+
+	const itemLink = allLinks
+	.map((item, index) => <ItemLink key={index + 1} index={index + 1} url={item.url} shortUrl={item.short_url} clicks={item.clicks}></ItemLink>)
 
 	return <>
 		<section className="all-links">
