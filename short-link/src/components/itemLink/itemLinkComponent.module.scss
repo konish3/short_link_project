@@ -1,31 +1,36 @@
 .item{
-	max-width: 500px;
-	background-color: #f2f2f2;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
-.even {
-	max-width: 500px;
-}
-.content{
-	font-size: 18px;
+	width: 500px;
 	display: flex;
-	margin: 15px 20px;
 	align-items: center;
+	height: 50px;
+	padding: 0 20px;
 }
 .number{
 	flex: 0 0 25px;
+	font-size: 18px;
 }
 .links{
 	display: flex;
-	flex: 1 1 10px;
-	/* justify-content: space-around; */
+	flex: 1 1 auto;
+	margin: 0 -10px;
+	line-height: 19px;
 }
 .url{
-	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px;
+	padding: 0 10px;
+	font-size: 18px;
 }
 .short_url{
-	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px;
+	padding: 0 10px;
+	margin-right: 10px;
+	font-size: 18px;
 }
 .clicks{
 	background-color: #79b4f7;
@@ -37,6 +42,7 @@
 	align-items: center;
 	justify-content: center;
 	flex: 0 0 25px;
+	font-size: 14px;
 }
 .ckicks_text {
 

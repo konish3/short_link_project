@@ -7,12 +7,19 @@
 }
 .block__content {
 	margin: 25px 20px;
+	position: relative;
 }
 .block__content_text {
 	font-size: 16px;
 	margin-bottom: 15px;
 }
 .block__content_error {
+	position: absolute;
+	bottom: -16px;
+	left: 0;
 	font-size: 16px;
 	color: red;
+}
+.block__content-row {
+	display: flex;
 }

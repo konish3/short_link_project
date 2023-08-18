@@ -1,10 +1,11 @@
 button {
 	font-size: 16px;
-	outline: 2px solid #ccc;
+	border: 2px solid #ccc;
 	border-radius: 4px;
 	height: 30px;
 	margin-left: 20px;
-}
-.button__text {
-	margin: auto 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
 }

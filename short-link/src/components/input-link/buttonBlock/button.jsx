@@ -1,11 +1,11 @@
 import React from 'react';
 import './button.css'
-import { addLink } from '../../../store/myLinksSlice/myLinksSlice';
 
-function Button ({url, setUrl, dispatch, error}) {
+export function Button ({url, text, onClick, error}) {
 	return <>
-		<button disabled={!url.length || error.length}><span className='button__text'>Сократить</span></button>
+		<button onClick={onClick} disabled={!url.length || error.length}>
+			{text}
+		</button>
 	</>
 }
 
-export default Button;

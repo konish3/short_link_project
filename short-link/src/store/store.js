@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { reducer as myLinksReducer } from './myLinksSlice/myLinksSlice';
-import { reducer as allLinksReducer } from './allLinksSlice/allLinksSlice';
+import shortLinksReducer from './reducers/shortLinksReducer'
 
 export const store = configureStore({
 	reducer: {
-		myLinks: myLinksReducer,
-		allLinks: allLinksReducer,
+		shortLinks: shortLinksReducer,
 	}
 })

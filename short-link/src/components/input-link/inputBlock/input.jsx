@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './input.module.css'
 
-function Input({ url,error, handleInputChange, onBlur }) {
+export function Input({ url,error, handleInputChange, onBlur }) {
 
-	return <>
-		<input className={!error.length ? styles.input : styles.error}
-		type="text" value={url} onChange={handleInputChange} onBlur={onBlur}/>
-	</>
+	return<input className={`${styles.input} ${error.length ? styles.error : ''}`}
+		type="text" 
+		value={url} 
+		onChange={handleInputChange} 
+		onBlur={onBlur}/>
 }
-
-export default Input;
