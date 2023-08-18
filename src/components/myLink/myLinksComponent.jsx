@@ -10,7 +10,7 @@ export function MyLinks({ myLinks }) {
 			{
 				myLinks.map((item, index) => <ItemLink
 					key={(index + 1).toString()}
-					index={item.index ?? index + 1}
+					id={item.index ?? index + 1}
 					url={item.url}
 					shortUrl={item.short_url}
 					clicks={item.clicks} />)

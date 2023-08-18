@@ -5,7 +5,7 @@ function Pagination (props) {
 	return <>
 		<article className={styles.pagination}>
 			<div className={styles.content}>
-				<button className={styles.button}></button>
+				<button className={styles.button}>1</button>
 			</div>
 		</article>
 	</>

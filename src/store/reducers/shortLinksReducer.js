@@ -2,14 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-	myLinks: [
-		{ url: 'https://google.comasdasdasdasdasdasdasasdasdasd', short_url: 'https://inlnk.ru/Pm5o0aasdasdasdasdasdasdasdasdasasdasdasdasdasdasdasd', clicks: 5 },
-		{ url: 'https://google.com', short_url: 'https://inlnk.ru/Pm5o0a', clicks: 5 },
-		{ url: 'https://google.comasdasdasdasdasdasd', short_url: 'https://inlnk.ru/Pm5o0a', clicks: 5 },
-	],
-	allLinks: [
-		
-	],
+	myLinks: [],
+	allLinks: [],
 	pagination: []
 }
 
@@ -18,11 +12,17 @@ export const shortLinksReducer = createSlice({
 	initialState,
 	reducers: {
 		setMyLinks: (state, action) => {
-			console.log(state, action)
+			const item = { url: action.payload, short_url: 'https://inlnk.ru/Pm5o0a', clicks: 0 }
+			state.myLinks.unshift(item)
+			state.allLinks.unshift(item)
 			return state
 		},
 		setAllLinks: (state, action) => {
 			state.allLinks.push(...action.payload.short_urls.data)
+			return state
+		},
+		setClicks: (state, action) => {
+			state.allLinks[action.payload - 1].clicks++
 			return state
 		},
 		setPagination: (state, action) => {
@@ -32,5 +32,5 @@ export const shortLinksReducer = createSlice({
 	}
 })
 
-export const { setMyLinks, setAllLinks, setPagination } = shortLinksReducer.actions
+export const { setMyLinks, setAllLinks, setClicks, setPagination } = shortLinksReducer.actions
 export default shortLinksReducer.reducer

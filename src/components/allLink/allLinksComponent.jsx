@@ -6,7 +6,6 @@ import PageNumber from '../pagination/paginationComponent';
 export function AllLink({ loading, allLinks }) {
 
 	if (loading) return <><h2>Loading...</h2></>
-
 	return <>
 		<section className="all-links">
 			<div className="all-links__title">Список ссылок</div>
@@ -14,7 +13,7 @@ export function AllLink({ loading, allLinks }) {
 				{
 					allLinks.map((item, index) => <ItemLink
 						key={(index + 1).toString()}
-						index={index + 1}
+						id={item.id}
 						url={item.url}
 						shortUrl={item.short_url}
 						clicks={item.clicks} />)

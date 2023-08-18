@@ -1,13 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {Input} from './inputBlock/input';
 import {Button} from './buttonBlock/button';
 import './inputLinkComponent.css';
+import { useDispatch } from 'react-redux';
+import { setMyLinks, setClicks } from './../../store/reducers/shortLinksReducer';
 
 export function InputLink(props) {
 	const [url, setUrl] = useState('')
 	const [error, setError] = useState('')
-
-
+	const dispatch = useDispatch()
 
 	const handleInput = useCallback((type, e) => {
 		const value = e.target.value.trim();
@@ -30,8 +31,12 @@ export function InputLink(props) {
 		}
 	}, [])
 
-	const onClickHandler = () => {
-
+	const onClickButton = () => {
+		dispatch(setMyLinks(url))
+		setUrl('')
+	}
+	const onClickUrl = () => {
+		dispatch(setClicks(url))
 	}
 
 	return <div className='block'>
@@ -43,10 +48,11 @@ export function InputLink(props) {
 					url={url}
 					error={error}
 					handleInputChange={handleInput.bind(null, 'change')}
-					onBlur={handleInput.bind(null, 'blur')} />
+					onBlur={handleInput.bind(null, 'blur')}
+					onClickUrl={onClickUrl} />
 				<Button
 					url={url}
-					onClick={onClickHandler}
+					onClick={onClickButton}
 					text='Coкратить'
 					error={error} />
 				{/* </form> */}
